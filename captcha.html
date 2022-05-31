@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Javascript Based Captcha</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap" rel="stylesheet">
+    <!-- Script -->
+    <script src="captcha.js"></script>
+    <!-- CSS -->
+    <style>
+        footer {
+            text-align: center;
+        }
+
+        .container {
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .box {
+            background-color: #f1f2f2;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        .captcha {
+            font-family: 'Caveat', cursive;
+            /* font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-style: italic;*/
+            font-weight: bold;
+            font-size: 2.5em;
+            padding: 15px;
+            border-radius: 10px;
+            text-decoration: line-through;
+            color: #a7a7a7;
+            background-color: #3d3d3d;
+            -webkit-user-select: none;
+            /* Chrome all / Safari all */
+            -moz-user-select: none;
+            /* Firefox all */
+            -ms-user-select: none;
+            /* IE 10+ */
+            user-select: none;
+            /* Likely future */
+        }
+
+        .restart a {
+            text-decoration: none;
+        }
+
+        .errmsg {
+            color: black;
+            padding: 5px;
+            transition: 0.5s ease;
+        }
+
+        input {
+            width: 100%;
+            margin-bottom: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="captcha" class="captcha">
+            <script>createCaptcha();</script>
+        </div>
+        <div class="restart">
+            <a href="#" onclick="createCaptcha()">Reload</a>
+        </div>
+        <div class="input">
+            <input type="text" name="reCaptcha" id="reCaptcha" placeholder="Type The Captcha" />
+        </div>
+        <div><input type="button" value="Submit" onclick="validateCaptcha()" /></div>
+        <div id="errCaptcha" class="errmsg"></div>
+    </div>
+    <footer>By <a href="https://rashidrafiq.com" target="_blank">Rashid Rafiq</a> @ <a href="https://webdesign021.co"
+            target="_blank">Webdesign021.co</a></footer>
+</body>
+
+</html>
